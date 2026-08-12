@@ -112,7 +112,7 @@ bash scripts/run_rule_abm.sh
 Formal runs require one or more OpenAI-compatible model endpoints. A paired launcher runs the insurance-enabled society and its insurance-disabled counterfactual for the same seed:
 
 ```bash
-bash scripts/run_formal_pair.sh <seed>
+bash scripts/run_formal_pair.sh 42
 ```
 
 The launcher reads model endpoints from `VLLM_BASE_URLS` and the served model name from `VLLM_MODEL`; no machine-specific address is embedded in the repository. Use `scripts/run_formal_seeds.sh` for the frozen seeds 42, 77, and 202. Deployment and resume instructions are provided in the [cluster execution guide](docs/CLUSTER_EXECUTION.md).
@@ -122,7 +122,7 @@ The launcher reads model endpoints from `VLLM_BASE_URLS` and the served model na
 Fourteen one-factor profiles vary AI loss, AI value, insurance price, insurance protection, network density, panic transmission, and memory persistence around the formal configuration.
 
 ```bash
-bash scripts/run_sensitivity_pair.sh <profile> [seed]
+bash scripts/run_sensitivity_pair.sh ai_loss_high 42
 ```
 
 Available profiles are stored in [`configs/sensitivity/`](configs/sensitivity). Each launcher preserves the matched insurance comparison and writes newly generated trajectories under `runs/`.
@@ -179,7 +179,7 @@ The repository does not include precomputed trajectories or manuscript results. 
 
 ## Release Scope
 
-This GitHub repository contains executable code, frozen configurations, tests, launchers, analysis utilities, and documentation. The companion Hugging Face repository contains only research input data. Simulation trajectories, calibration runs, model traces, checkpoints, manuscript figures, and reported results are not distributed in either release.
+This GitHub repository contains executable code, frozen configurations, tests, launchers, analysis utilities, and documentation. The companion Hugging Face repository contains only research input data. Simulation trajectories, calibration runs, model traces, checkpoints, manuscript result figures, and reported results are not distributed in either release.
 
 ## Citation
 
