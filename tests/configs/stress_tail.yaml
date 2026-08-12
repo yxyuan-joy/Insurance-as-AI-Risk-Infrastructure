@@ -1,0 +1,24 @@
+extends: base.yaml
+
+# Stress scenario for robustness, not the main baseline. It keeps the same
+# firms, vendors, insurers, contracts, and model-agent decision layer, but
+# makes high-AutoCLAW-risk firm-days realize larger tail losses.
+simulation:
+  action_loss_scale: 2.40
+  # Liquidity-stress layer: firms keep the same asset base but start with less
+  # cash on hand, so tail losses can test whether insurance prevents insolvency.
+  initial_cash_multiplier: 0.45
+
+risk_mapping:
+  catastrophic_tail_threshold: 0.24
+  catastrophic_tail_loss_multiplier: 18.0
+  claimable_loss_ratio_threshold: 0.0030
+  claimable_min_loss_ratio: 0.0012
+  claimable_event_score_threshold: 0.54
+
+panic:
+  material_event_weight: 0.18
+  claimable_event_weight: 0.32
+  uninsured_claimable_event_weight: 0.58
+  indemnity_relief_weight: 0.34
+  insurance_reassurance_weight: 0.12

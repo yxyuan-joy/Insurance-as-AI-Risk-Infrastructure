@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# Sensitivity: more expensive insurance pricing.
+# Tests whether the insurance effect is not merely a free-coverage artifact.
+insurance_pricing:
+  global_multiplier: 3.25

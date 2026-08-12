@@ -1,0 +1,7 @@
+extends: ../formal.yaml
+
+# Sensitivity: shorter firm memory of losses and claimable events.
+# Tests whether the result depends on overly persistent adverse experience.
+experience_memory:
+  loss_memory_decay: 0.82
+  claimable_memory_decay: 0.84

@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# Sensitivity: weaker panic transmission from uninsured claimable losses.
+# Tests whether the insurance effect requires strong panic amplification.
+panic:
+  uninsured_claimable_event_weight: 0.48

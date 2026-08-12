@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "insurance-ai-risk-infrastructure"
+version = "1.0.0"
+description = "Code for an insurance-mediated AI risk social simulation"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "numpy>=1.24,<3",
+  "pandas>=2.0,<4",
+  "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+analysis = [
+  "matplotlib>=3.7,<4",
+  "scienceplots>=2.1,<3",
+]
+benchmark = ["openai>=1.30,<2"]
+test = ["pytest>=7,<9"]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

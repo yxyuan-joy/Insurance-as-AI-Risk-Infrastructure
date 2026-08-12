@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# Sensitivity: stronger panic transmission from uninsured claimable losses.
+# Tests whether the mechanism remains stable when unabsorbed tail events propagate more strongly.
+panic:
+  uninsured_claimable_event_weight: 0.68

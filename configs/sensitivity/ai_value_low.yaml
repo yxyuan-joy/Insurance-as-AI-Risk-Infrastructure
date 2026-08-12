@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# Sensitivity: lower AI productivity value.
+# Tests whether the insurance effect depends on an optimistic AI-gain calibration.
+simulation:
+  ai_gain_scale: 0.070

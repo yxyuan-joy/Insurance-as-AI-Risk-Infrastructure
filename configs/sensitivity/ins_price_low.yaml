@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# Sensitivity: cheaper insurance pricing.
+# Tests whether the mechanism remains coherent when policies are easier to buy.
+insurance_pricing:
+  global_multiplier: 2.65
