@@ -4,15 +4,18 @@ from __future__ import annotations
 import argparse
 import os
 import shutil
+import ssl
 import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
 
+import certifi
+
 from validate_data import REQUIRED_FILES, validate_data
 
 
-DEFAULT_REPO_ID = "yxyuan-joy/Insurance-as-AI-Risk-Infrastructure-Data"
+DEFAULT_REPO_ID = "yxyuan/Insurance-as-AI-Risk-Infrastructure-Data"
 
 
 def download_file(repo_id: str, revision: str, relative_path: str, destination: Path, token: str) -> None:
@@ -26,7 +29,8 @@ def download_file(repo_id: str, revision: str, relative_path: str, destination: 
     destination.parent.mkdir(parents=True, exist_ok=True)
     temporary = destination.with_suffix(destination.suffix + ".part")
     try:
-        with urllib.request.urlopen(request, timeout=120) as response, temporary.open("wb") as handle:
+        context = ssl.create_default_context(cafile=certifi.where())
+        with urllib.request.urlopen(request, timeout=120, context=context) as response, temporary.open("wb") as handle:
             shutil.copyfileobj(response, handle)
         temporary.replace(destination)
     except urllib.error.HTTPError as exc:

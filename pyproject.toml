@@ -9,6 +9,7 @@ description = "Code for an insurance-mediated AI risk social simulation"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+  "certifi>=2024.2.2",
   "numpy>=1.24,<3",
   "pandas>=2.0,<4",
   "PyYAML>=6.0,<7",

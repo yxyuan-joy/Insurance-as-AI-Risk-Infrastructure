@@ -88,7 +88,7 @@ The tests cover data boundaries, bounded vendor visibility, decision schemas, co
 
 ### 3. Download and validate the inputs
 
-Research inputs are distributed through the companion [Hugging Face dataset](https://huggingface.co/datasets/yxyuan-joy/Insurance-as-AI-Risk-Infrastructure-Data).
+Research inputs are distributed through the companion [Hugging Face dataset](https://huggingface.co/datasets/yxyuan/Insurance-as-AI-Risk-Infrastructure-Data).
 
 ```bash
 python scripts/download_data.py
