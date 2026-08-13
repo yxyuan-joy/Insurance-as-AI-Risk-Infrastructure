@@ -1,0 +1,5 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: higher AI productivity value.
+simulation:
+  ai_gain_scale: 0.086

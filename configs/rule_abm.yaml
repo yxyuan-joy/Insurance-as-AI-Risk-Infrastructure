@@ -1,0 +1,12 @@
+extends: formal.yaml
+
+# The rule baseline shares the market, accounting, risk, and contract layers
+# with the model-agent experiment. These two cutoffs map insurance demand onto
+# the score scale produced by the deterministic heuristic policy.
+decision_layer:
+  mode: rule_heuristic
+  llm_or_vllm_enabled: false
+
+decision_policy:
+  insurance_buy_threshold: 0.30
+  insurance_min_threshold: 0.22

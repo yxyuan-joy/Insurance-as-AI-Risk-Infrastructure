@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: higher coverage and lower deductible.
+insurance_pricing:
+  coverage_ratio_delta: 0.20
+  deductible_ratio_delta: -0.14

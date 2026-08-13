@@ -1,0 +1,5 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: higher realized AI operational loss.
+simulation:
+  action_loss_scale: 3.70

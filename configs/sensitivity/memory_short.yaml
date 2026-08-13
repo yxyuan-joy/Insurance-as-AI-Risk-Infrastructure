@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: shorter loss and claimable-event memory.
+experience_memory:
+  loss_memory_decay: 0.82
+  claimable_memory_decay: 0.84

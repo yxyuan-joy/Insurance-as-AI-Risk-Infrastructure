@@ -1,0 +1,5 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: weaker panic transmission from uninsured claimable losses.
+panic:
+  uninsured_claimable_event_weight: 0.48

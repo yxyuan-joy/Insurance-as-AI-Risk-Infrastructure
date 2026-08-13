@@ -1,0 +1,6 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: denser peer-information network.
+network:
+  same_industry_neighbors: 16
+  cross_industry_neighbors: 5

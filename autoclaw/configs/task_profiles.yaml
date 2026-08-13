@@ -1,0 +1,189 @@
+default_difficulty_mix:
+  easy: 0.10
+  calibrated: 0.55
+  stress: 0.35
+
+task_profiles:
+  utilities:
+    daily_task_count:
+      probabilities:
+        1: 0.25
+        2: 0.45
+        3: 0.22
+        4: 0.08
+    main_tasks:
+      report_generation: 0.30
+      directory_audit: 0.25
+      file_cleanup: 0.25
+      summary_with_constraints: 0.10
+      doc_rewrite: 0.10
+
+  information_technology:
+    daily_task_count:
+      probabilities:
+        1: 0.15
+        2: 0.35
+        3: 0.32
+        4: 0.14
+        5: 0.04
+    main_tasks:
+      file_cleanup: 0.25
+      directory_audit: 0.20
+      summary_with_constraints: 0.20
+      doc_rewrite: 0.15
+      csv_update: 0.10
+      report_generation: 0.10
+
+  financials:
+    daily_task_count:
+      probabilities:
+        1: 0.12
+        2: 0.38
+        3: 0.34
+        4: 0.13
+        5: 0.03
+    main_tasks:
+      report_generation: 0.20
+      csv_update: 0.25
+      record_update: 0.20
+      doc_rewrite: 0.15
+      email_draft: 0.10
+      summary_with_constraints: 0.10
+
+  health_care:
+    daily_task_count:
+      probabilities:
+        1: 0.15
+        2: 0.40
+        3: 0.30
+        4: 0.12
+        5: 0.03
+    main_tasks:
+      record_update: 0.25
+      summary_with_constraints: 0.20
+      doc_rewrite: 0.20
+      report_generation: 0.15
+      email_draft: 0.10
+      directory_audit: 0.10
+
+  cons_discretionary:
+    daily_task_count:
+      probabilities:
+        1: 0.30
+        2: 0.42
+        3: 0.20
+        4: 0.08
+    main_tasks:
+      email_draft: 0.25
+      doc_rewrite: 0.20
+      report_generation: 0.20
+      summary_with_constraints: 0.15
+      csv_update: 0.10
+      file_cleanup: 0.10
+
+  cons_staples:
+    daily_task_count:
+      probabilities:
+        1: 0.25
+        2: 0.45
+        3: 0.22
+        4: 0.08
+    main_tasks:
+      record_update: 0.20
+      report_generation: 0.20
+      email_draft: 0.20
+      csv_update: 0.15
+      doc_rewrite: 0.15
+      directory_audit: 0.10
+
+  communication_services:
+    daily_task_count:
+      probabilities:
+        1: 0.22
+        2: 0.42
+        3: 0.25
+        4: 0.09
+        5: 0.02
+    main_tasks:
+      email_draft: 0.25
+      summary_with_constraints: 0.20
+      doc_rewrite: 0.20
+      report_generation: 0.15
+      file_cleanup: 0.10
+      directory_audit: 0.10
+
+  industrials:
+    daily_task_count:
+      probabilities:
+        1: 0.22
+        2: 0.43
+        3: 0.25
+        4: 0.10
+    main_tasks:
+      directory_audit: 0.25
+      file_cleanup: 0.25
+      report_generation: 0.20
+      record_update: 0.10
+      csv_update: 0.10
+      doc_rewrite: 0.10
+
+  materials:
+    daily_task_count:
+      probabilities:
+        1: 0.25
+        2: 0.45
+        3: 0.22
+        4: 0.08
+    main_tasks:
+      directory_audit: 0.25
+      file_cleanup: 0.25
+      record_update: 0.20
+      report_generation: 0.15
+      csv_update: 0.15
+
+  energy:
+    daily_task_count:
+      probabilities:
+        1: 0.20
+        2: 0.45
+        3: 0.25
+        4: 0.10
+    main_tasks:
+      report_generation: 0.25
+      directory_audit: 0.25
+      file_cleanup: 0.20
+      summary_with_constraints: 0.10
+      record_update: 0.10
+      doc_rewrite: 0.10
+
+  real_estate:
+    daily_task_count:
+      probabilities:
+        1: 0.28
+        2: 0.44
+        3: 0.20
+        4: 0.08
+    main_tasks:
+      doc_rewrite: 0.25
+      record_update: 0.20
+      email_draft: 0.20
+      report_generation: 0.15
+      summary_with_constraints: 0.10
+      directory_audit: 0.10
+
+  default:
+    daily_task_count:
+      probabilities:
+        1: 0.25
+        2: 0.45
+        3: 0.22
+        4: 0.08
+    main_tasks:
+      file_cleanup: 0.15
+      doc_rewrite: 0.15
+      report_generation: 0.15
+      csv_update: 0.15
+      directory_audit: 0.10
+      email_draft: 0.10
+      record_update: 0.10
+      summary_with_constraints: 0.10

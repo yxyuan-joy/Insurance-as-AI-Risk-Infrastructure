@@ -1,0 +1,5 @@
+extends: ../formal.yaml
+
+# One-factor sensitivity: higher insurance-price multiplier.
+insurance_pricing:
+  global_multiplier: 3.25

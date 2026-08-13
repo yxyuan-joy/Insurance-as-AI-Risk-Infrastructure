@@ -1,0 +1,350 @@
+paths:
+  action_risk_path: data/autoclaw/firm_daily_action_risk.csv
+  buyer_population_path: data/buyers_population.json
+  selected_firms_path: data/autoclaw/selected_firms.csv
+  real_firms_path: data/real_firms.json
+simulation:
+  seed: 42
+  days: 100
+  enable_insurance_market: true
+  action_loss_scale: 3.35
+  ai_gain_scale: 0.078
+  ai_gain_risk_drag: 0.7
+  traditional_return_mu: -8.0e-05
+  traditional_return_sigma: 0.0035
+  traditional_return_cap_up: 0.01
+  traditional_return_cap_down: -0.025
+  initial_cash_multiplier: 0.3
+network:
+  enabled: true
+  same_industry_neighbors: 12
+  cross_industry_neighbors: 4
+  min_neighbors: 10
+  recent_claim_window_days: 7
+decision_layer:
+  mode: vllm_openai
+  llm_or_vllm_enabled: true
+  model: qwen3-agent-local
+  base_url: http://localhost:8000/v1
+  api_key: EMPTY
+  timeout_seconds: 30
+  temperature: 0.0
+  max_tokens: 220
+  fallback_to_rule: false
+decision_policy:
+  ads_bandwidth: 3
+  adoption_base_probability: 0.006
+  adoption_tech_weight: 0.045
+  adoption_innov_weight: 0.032
+  adoption_peer_weight: 0.042
+  adoption_inertia_weight: 0.04
+  adoption_panic_weight: 0.055
+  adoption_loss_memory_weight: 0.018
+  adoption_claimable_memory_weight: 0.014
+  adoption_insurance_confidence_weight: 0.02
+  adoption_saturation_weight: 0.55
+  adoption_saturation_floor: 0.32
+  adoption_min_probability: 0.002
+  adoption_max_probability: 0.06
+  model_adoption_base_threshold: 0.665
+  model_adoption_maturity_days: 106
+  model_adoption_early_friction: 0.147
+  model_adoption_peer_reference: 0.47
+  model_adoption_peer_floor: 0.075
+  model_adoption_low_peer_friction: 0.078
+  model_adoption_peer_evidence_lag_days: 48
+  model_adoption_implementation_uncertainty: 0.064
+  model_adoption_local_evidence_relief: 0.092
+  model_adoption_local_evidence_curve_power: 1.5
+  model_adoption_pioneer_readiness_discount: 0.145
+  model_adoption_inertia_penalty: 0.056
+  model_adoption_tech_discount: 0.047
+  model_adoption_innov_discount: 0.035
+  model_adoption_dependency_discount: 0.035
+  model_adoption_panic_threshold_penalty: 0.055
+  model_adoption_loss_memory_threshold_penalty: 0.08
+  model_adoption_claimable_memory_threshold_penalty: 0.07
+  model_adoption_insurance_confidence_discount: 0.01
+  model_adoption_min_threshold: 0.55
+  model_adoption_max_threshold: 0.935
+  renewal_base_probability: 0.58
+  renewal_insurance_confidence_weight: 0.055
+  renewal_risk_memory_weight: 0.34
+  renewal_loss_memory_weight: 0.18
+  renewal_claimable_memory_weight: 0.1
+  renewal_panic_weight: 0.18
+  model_renewal_loss_memory_threshold_penalty: 0.08
+  model_renewal_claimable_memory_threshold_penalty: 0.06
+  model_renewal_panic_threshold_penalty: 0.06
+  model_renewal_insurance_confidence_discount: 0.03
+  renewal_min_probability: 0.12
+  renewal_max_probability: 0.82
+  insurance_buy_threshold: 0.39
+  insurance_base_score: 0.06
+  insurance_claimable_weight: 0.28
+  insurance_material_weight: 0.18
+  insurance_memory_weight: 0.16
+  insurance_claimable_memory_weight: 0.12
+  insurance_industry_incident_weight: 0.08
+  insurance_industry_stress_weight: 0.1
+  insurance_industry_loss_weight: 0.06
+  insurance_panic_weight: 0.1
+  insurance_recent_claim_weight: 0.15
+  insurance_peer_coverage_weight: 0.03
+  insurance_risk_aversion_weight: 0.14
+  insurance_ai_dependency_weight: 0.11
+  insurance_renewal_bonus: 0.24
+  insurance_renewal_threshold_discount: 0.09
+  insurance_min_threshold: 0.27
+  insurance_innovativeness_discount: 0.07
+  insurance_high_risk_term_threshold: 0.7
+  insurance_medium_risk_term_threshold: 0.38
+  insurance_medium_dependency_threshold: 0.62
+  insurance_medium_risk_tolerance_threshold: 0.5
+  insurance_cash_tight_share: 0.055
+  abandon_score_threshold: 0.62
+  max_premium_cash_share: 0.13
+  target_premium_cash_share: 0.045
+  quote_price_sensitivity: 0.24
+  quote_deductible_weight: 0.22
+  min_quote_utility: -0.22
+  backstop_enabled: true
+  backstop_score_threshold: 0.62
+  backstop_utility_penalty: 0.16
+  model_adoption_local_evidence_reference: 0.47
+  model_adoption_local_evidence_floor: 0.075
+  model_adoption_low_local_evidence_friction: 0.078
+  model_adoption_local_evidence_lag_days: 48
+  adoption_peer_evidence_gate: 0.0
+  adoption_insurance_availability_floor: 0.15
+  adoption_peer_coverage_weight: 0.65
+  adoption_paid_claim_weight: 0.2
+  adoption_paid_claim_reference: 0.015
+  model_adoption_risk_transfer_evidence_gate: 0.2
+  model_adoption_insurance_availability_floor: 0.15
+  model_adoption_peer_coverage_weight: 0.7
+  model_adoption_paid_claim_weight: 0.2
+  model_adoption_paid_claim_reference: 0.015
+  model_adoption_guard_enabled: false
+  model_adoption_threshold_offset: 0.043
+  model_renewal_threshold_offset: 0.05
+  model_adoption_required_margin: 0.026
+  model_renewal_required_margin: 0.045
+  common_random_numbers: true
+  common_random_seed: 42
+negotiation:
+  enabled: true
+  vendor_max_rounds: 10
+  insurance_max_rounds: 10
+  vendor_min_rounds: 3
+  insurance_min_rounds: 4
+  max_rounds_cap: 30
+  vendor_max_cash_share: 0.055
+  insurance_max_cash_share: 0.13
+  vendor_accept_slack: 0.015
+  insurance_floor_ratio: 0.84
+contract_lifecycle:
+  vendor_fee_base_days: 30
+  vendor_min_term_days: 14
+  vendor_max_term_days: 120
+  insurance_min_term_days: 1
+  insurance_max_term_days: 120
+  allow_midterm_ai_abandon: true
+  same_day_reentry_after_abandon: false
+  reentry_cooldown_days_after_abandon: 7
+  reentry_cooldown_days_after_failed_renewal: 7
+  min_remaining_days_for_abandon: 7
+  abandon_score_threshold: 0.42
+  vendor_refund:
+    max_refund_ratio: 0.7
+    refund_penalty_ratio: 0.1
+    refund_non_linear: 2.0
+  insurance_refund:
+    refund_penalty_ratio: 0.06
+  initial_adoption_trial_term_cap_days: 60
+  initial_adoption_long_term_margin: 0.08
+claims:
+  claim_cooldown_days: 1
+experience_memory:
+  risk_memory_decay: 0.86
+  loss_memory_decay: 0.88
+  claimable_memory_decay: 0.9
+  uninsured_loss_memory_boost: 0.16
+  uninsured_claimable_memory_boost: 0.1
+  paid_claim_loss_memory_relief: 0.35
+  paid_claim_claimable_memory_relief: 0.18
+risk_mapping:
+  risk_score_floor: 0.02
+  loss_realization_rate: 0.7
+  catastrophic_tail_threshold: 0.25
+  catastrophic_tail_loss_multiplier: 12.0
+  material_loss_ratio_threshold: 0.0015
+  claimable_loss_ratio_threshold: 0.003
+  claimable_min_loss_ratio: 0.0012
+  material_event_score_threshold: 0.46
+  claimable_event_score_threshold: 0.54
+panic:
+  memory: 0.82
+  calm_decay: 0.02
+  material_event_weight: 0.18
+  claimable_event_weight: 0.32
+  claim_event_weight: 0.08
+  uninsured_claimable_event_weight: 0.58
+  indemnity_relief_weight: 0.34
+  insurance_reassurance_weight: 0.12
+  severity_weight: 0.08
+  network_neighbor_weight: 0.35
+  own_event_weight: 0.3
+vendors:
+- id: Vendor_Alpha
+  label: Stability leader
+  subscription_fee: 2800
+  productivity_lift: 0.011
+  risk_multiplier: 0.62
+  reputation: 0.78
+  marketing_weight: 1.05
+  target_sectors:
+  - financials
+  - energy
+  - health_care
+- id: Vendor_Beta
+  label: Efficient challenger
+  subscription_fee: 2200
+  productivity_lift: 0.013
+  risk_multiplier: 0.82
+  reputation: 0.68
+  marketing_weight: 0.95
+  target_sectors:
+  - information_technology
+  - communication_services
+  - cons_discretionary
+- id: Vendor_Gamma
+  label: Sector specialist
+  subscription_fee: 1600
+  productivity_lift: 0.0125
+  risk_multiplier: 1.1
+  reputation: 0.63
+  marketing_weight: 0.95
+  target_sectors:
+  - industrials
+  - materials
+  - utilities
+- id: Vendor_Delta
+  label: Low-cost generalist
+  subscription_fee: 1200
+  productivity_lift: 0.012
+  risk_multiplier: 1.05
+  reputation: 0.62
+  marketing_weight: 1.25
+  target_sectors:
+  - ALL
+insurers:
+- id: Insurer_Apex_Global
+  label: Large diversified commercial insurer archetype
+  domicile: US/global
+  initial_capital: 6500000
+  base_margin: 0.38
+  risk_appetite: 0.62
+  expense_load: 0.045
+  capital_load: 0.85
+  deductible_ratio: 0.34
+  coverage_ratio: 0.64
+  limit_ratio: 0.11
+  max_active_policies: 115
+  solvency_floor_ratio: 0.22
+  soft_threshold_ratio: 0.68
+  hard_threshold_ratio: 0.42
+  target_sectors:
+  - ALL
+  market_role: private
+- id: Insurer_Mutual_Commercial
+  label: US mutual and SME commercial insurer archetype
+  domicile: US
+  initial_capital: 4200000
+  base_margin: 0.3
+  risk_appetite: 0.58
+  expense_load: 0.028
+  capital_load: 0.9
+  deductible_ratio: 0.3
+  coverage_ratio: 0.59
+  limit_ratio: 0.1
+  max_active_policies: 45
+  solvency_floor_ratio: 0.24
+  soft_threshold_ratio: 0.72
+  hard_threshold_ratio: 0.46
+  target_sectors:
+  - cons_discretionary
+  - cons_staples
+  - real_estate
+  - utilities
+  market_role: private
+- id: Insurer_Digital_CN
+  label: China digital commercial insurer archetype
+  domicile: China
+  initial_capital: 3800000
+  base_margin: 0.32
+  risk_appetite: 0.66
+  expense_load: 0.03
+  capital_load: 0.85
+  deductible_ratio: 0.3
+  coverage_ratio: 0.56
+  limit_ratio: 0.08
+  max_active_policies: 75
+  solvency_floor_ratio: 0.23
+  soft_threshold_ratio: 0.7
+  hard_threshold_ratio: 0.44
+  target_sectors:
+  - information_technology
+  - communication_services
+  - financials
+  market_role: private
+- id: Insurer_Specialty_Tech
+  label: Specialty cyber and technology insurer archetype
+  domicile: US/London
+  initial_capital: 3000000
+  base_margin: 0.45
+  risk_appetite: 0.52
+  expense_load: 0.05
+  capital_load: 0.95
+  deductible_ratio: 0.34
+  coverage_ratio: 0.74
+  limit_ratio: 0.15
+  max_active_policies: 45
+  solvency_floor_ratio: 0.26
+  soft_threshold_ratio: 0.76
+  hard_threshold_ratio: 0.5
+  target_sectors:
+  - information_technology
+  - health_care
+  - financials
+  - communication_services
+  market_role: private
+- id: Residual_Backstop_Facility
+  label: Public or reinsurer-backed residual facility archetype
+  domicile: Policy backstop
+  initial_capital: 9000000
+  base_margin: 0.6
+  risk_appetite: 0.35
+  expense_load: 0.025
+  capital_load: 1.2
+  deductible_ratio: 0.5
+  coverage_ratio: 0.55
+  limit_ratio: 0.2
+  max_active_policies: 1000000
+  solvency_floor_ratio: 0.3
+  soft_threshold_ratio: 0.8
+  hard_threshold_ratio: 0.58
+  target_sectors:
+  - ALL
+  market_role: backstop
+insurance_pricing:
+  pure_loss_multiplier: 1.0
+  stress_loss_multiplier: 1.1
+  expense_multiplier: 1.0
+  global_multiplier: 2.95
+  catastrophic_tail_pricing_share: 0.13
+  premium_cap_asset_share: 0.18
+  deductible_ratio_delta: -0.12
+  coverage_ratio_delta: 0.16
+  limit_ratio_multiplier: 2.2
+  incident_threshold_delta: -0.06
