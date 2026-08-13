@@ -1,7 +1,6 @@
 extends: ../formal.yaml
 
-# Sensitivity: sparser peer-information network.
-# Tests whether diffusion and insurance effects depend on unusually dense local information.
+# One-factor sensitivity: sparser peer-information network.
 network:
   same_industry_neighbors: 8
   cross_industry_neighbors: 3

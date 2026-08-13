@@ -1,7 +1,6 @@
 extends: ../formal.yaml
 
-# Sensitivity: longer firm memory of losses and claimable events.
-# Tests whether stronger persistence changes the insurance channel.
+# One-factor sensitivity: longer loss and claimable-event memory.
 experience_memory:
   loss_memory_decay: 0.92
   claimable_memory_decay: 0.94

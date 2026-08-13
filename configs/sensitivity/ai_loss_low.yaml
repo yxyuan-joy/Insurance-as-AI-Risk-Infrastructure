@@ -1,6 +1,5 @@
 extends: ../formal.yaml
 
-# Sensitivity: lower realized AI operational loss.
-# Tests whether the result disappears when AI risk is milder.
+# One-factor sensitivity: lower realized AI operational loss.
 simulation:
   action_loss_scale: 3.00

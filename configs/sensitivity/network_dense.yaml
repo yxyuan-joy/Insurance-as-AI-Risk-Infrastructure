@@ -1,7 +1,6 @@
 extends: ../formal.yaml
 
-# Sensitivity: denser peer-information network.
-# Tests whether the mechanism remains stable when local social evidence is more available.
+# One-factor sensitivity: denser peer-information network.
 network:
   same_industry_neighbors: 16
   cross_industry_neighbors: 5

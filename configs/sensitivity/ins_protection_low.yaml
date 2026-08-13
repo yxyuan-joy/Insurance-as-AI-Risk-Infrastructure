@@ -1,7 +1,6 @@
 extends: ../formal.yaml
 
-# Sensitivity: less generous insurance protection.
-# Tests whether results require unusually high coverage or low deductibles.
+# One-factor sensitivity: lower coverage and higher deductible.
 insurance_pricing:
   coverage_ratio_delta: 0.10
   deductible_ratio_delta: -0.08

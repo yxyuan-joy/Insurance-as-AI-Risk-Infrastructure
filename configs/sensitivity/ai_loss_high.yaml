@@ -1,6 +1,5 @@
 extends: ../formal.yaml
 
-# Sensitivity: higher realized AI operational loss.
-# Tests whether insurance still improves aggregate outcomes when AI tail exposure is stronger.
+# One-factor sensitivity: higher realized AI operational loss.
 simulation:
   action_loss_scale: 3.70
